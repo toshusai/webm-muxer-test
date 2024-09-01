@@ -1,0 +1,21 @@
+{
+  "name": "webm-muxer-test",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/dom-webcodecs": "^0.1.11",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "audiobuffer-to-wav": "^1.0.0",
+    "tone": "^15.0.4",
+    "webm-muxer": "^5.0.0"
+  }
+}
