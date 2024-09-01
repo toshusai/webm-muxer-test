@@ -131,13 +131,20 @@ function main() {
       bitrate: sampleRate * numberOfChannels * 16,
     });
 
+    const planarData = new Float32Array(length * numberOfChannels);
+
+    for (let channel = 0; channel < numberOfChannels; channel++) {
+      const channelData = audioBuffer.getChannelData(channel);
+      planarData.set(channelData, channel * length);
+    }
+
     const audioData = new AudioData({
-      format: "s16",
+      format: "f32-planar",
       sampleRate: sampleRate,
       numberOfFrames: length,
       numberOfChannels: numberOfChannels,
       timestamp: 0,
-      data: audioBuffer.getChannelData(0).buffer,
+      data: planarData,
     });
 
     audioEncoder.encode(audioData);
